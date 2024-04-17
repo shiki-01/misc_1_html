@@ -1,18 +1,40 @@
+@charset "UTF-8";
 html {
   font-family: "M PLUS 1p", sans-serif;
-  width: 100vw;
-  height: 100vh;
   background: #EEE;
 }
 
+body .phone {
+  display: none;
+}
+
+@media screen and (max-width: 620px) {
+  /* 480px以下に適用されるCSS（スマホ用） */
+  body .phone {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: #EEE;
+  }
+  body .phone p {
+    position: fixed;
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    padding: 10px;
+  }
+}
 body header {
   left: 0;
   width: 100%;
   height: 100%;
   top: -100%;
-}
-body header .home {
-  padding: 10px;
 }
 body header .home .ho-title {
   color: #333;
@@ -47,7 +69,7 @@ body header .home .earth:before {
   width: 400px;
   height: 400px;
   background-repeat: repeat-x;
-  background-image: url("../../images/earth.svg");
+  background-image: url("../images/earth.svg");
   background-size: auto 100%;
   transform: rotate(23.4deg);
   animation: rotation 16s linear infinite;
@@ -60,22 +82,17 @@ body header .home .earth:before {
     background-position: -278% 0;
   }
 }
-body header .home nav {
-  width: 100%;
-  height: 100%;
-}
 body header .home nav ul {
-  width: 0;
-  height: 0;
+  height: 100px;
   position: absolute;
-  top: 500px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 550px;
+  left: 50%;
   margin: auto;
+  margin-bottom: 0;
 }
 body header .home nav ul li {
   list-style: none;
+  margin-top: 50px;
 }
 body header .home nav ul a {
   text-decoration-line: none;
@@ -318,7 +335,7 @@ body header .home nav ul .sai .sai1 :hover::after {
   width: 100%;
 }
 body header .logo img {
-  width: 30%;
+  width: 400px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -330,7 +347,7 @@ body header .tuna {
   height: 200px;
 }
 body main {
-  background-color: #39c5ec;
+  background-color: #b5ffa4;
 }
 body main .btn,
 body main label.btn,
@@ -353,8 +370,9 @@ body main button.btn {
   color: #212529;
   border-radius: 0.5rem;
 }
-body main ul li {
-  width: 100%;
+body main ul li .conts {
+  top: 0;
+  left: 0;
 }
 body main ul li .content-image {
   position: sticky;
@@ -365,18 +383,20 @@ body main ul li .content-image .cont-image {
   opacity: 0.5;
 }
 body main ul li .content-image .cont-image img {
+  width: 100%;
   height: 100vh;
-  width: 100vw;
-  position: relative;
-  left: 0;
-  filter: contrast(0.8);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
   -o-object-fit: cover;
      object-fit: cover;
+  filter: contrast(0.8);
 }
 body main ul li .content {
   display: block;
   position: relative;
-  top: -500px;
+  top: -300px;
 }
 body main ul li .content h1 {
   box-shadow: 5px 5px 0 #dfdfdf;
@@ -419,7 +439,7 @@ body main ul li .content div {
 }
 body main ul li .content div mark {
   font-style: normal;
-  background: linear-gradient(transparent 40%, #fbff00 80%);
+  background: linear-gradient(transparent 60%, #fbff00 0%);
 }
 body main ul li .content div .ookami {
   display: flex;
@@ -430,7 +450,6 @@ body main ul li .content div img {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-right: 1em;
   border-radius: 10px;
 }
 body main ul li .content div ul {
@@ -454,6 +473,7 @@ body main ul li .content div span {
   display: inline-block;
   margin: 2em 0;
   font-weight: 800;
+  font-size: 1.5em;
 }
 body main ul li .content div span:first-letter {
   font-size: 2em;
@@ -496,62 +516,224 @@ body main ul li .cont2 .content span {
   color: #193970;
 }
 body main ul li .cont3 {
+  background-color: #379ea9;
+  background-image: radial-gradient(#379ea9 0.65px, #74c9d2 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont3 .content h1 {
+  background: #3db0bc;
+}
+body main ul li .cont3 .content ul li a {
+  color: #1e565c;
+}
+body main ul li .cont3 .content ul li:before {
+  background-color: #379ea9;
+}
+body main ul li .cont3 .content span {
+  background: linear-gradient(transparent 70%, #74c9d2 70%);
+  color: #1e565c;
+}
+body main ul li .cont4 {
+  background-color: #c84141;
+  background-image: radial-gradient(#c84141 0.65px, #df9090 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont4 .content h1 {
+  background: #ce5555;
+}
+body main ul li .cont4 .content ul li a {
+  color: #7e2525;
+}
+body main ul li .cont4 .content ul li:before {
+  background-color: #c84141;
+}
+body main ul li .cont4 .content span {
+  background: linear-gradient(transparent 70%, #df9090 70%);
+  color: #7e2525;
+}
+body main ul li .cont5 {
+  background-color: #d4d85b;
+  background-image: radial-gradient(#d4d85b 0.65px, #eaecad 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont5 .content h1 {
+  background: #d9dd70;
+}
+body main ul li .cont5 .content ul li a {
+  color: #a2a627;
+}
+body main ul li .cont5 .content ul li:before {
+  background-color: #d4d85b;
+}
+body main ul li .cont5 .content span {
+  background: linear-gradient(transparent 70%, #eaecad 70%);
+  color: #a2a627;
+}
+body main ul li .cont6 {
+  background-color: #d258be;
+  background-image: radial-gradient(#d258be 0.65px, #e8a8dd 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont6 .content h1 {
+  background: #d76cc6;
+}
+body main ul li .cont6 .content ul li a {
+  color: #9a2a88;
+}
+body main ul li .cont6 .content ul li:before {
+  background-color: #d258be;
+}
+body main ul li .cont6 .content span {
+  background: linear-gradient(transparent 70%, #e8a8dd 70%);
+  color: #9a2a88;
+}
+body main ul li .cont7 {
   background-color: #61a937;
   background-image: radial-gradient(#61a937 0.65px, #97d274 0.65px);
   background-size: 13px 13px;
 }
-body main ul li .cont3 .content h1 {
+body main ul li .cont7 .content h1 {
   background: #6cbc3d;
 }
-body main ul li .cont3 .content ul li a {
+body main ul li .cont7 .content ul li a {
   color: #355c1e;
 }
-body main ul li .cont3 .content ul li:before {
+body main ul li .cont7 .content ul li:before {
   background-color: #61a937;
 }
-body main ul li .cont3 .content span {
+body main ul li .cont7 .content span {
   background: linear-gradient(transparent 70%, #97d274 70%);
   color: #355c1e;
 }
-body main ul li .cont4 {
-  background-color: #c84196;
-  background-image: radial-gradient(#c84196 0.65px, #df90c2 0.65px);
+body main ul li .cont8 {
+  background-color: #c84141;
+  background-image: radial-gradient(#c84141 0.65px, #df9090 0.65px);
   background-size: 13px 13px;
 }
-body main ul li .cont4 .content h1 {
-  background: #ce55a1;
+body main ul li .cont8 .content h1 {
+  background: #ce5555;
 }
-body main ul li .cont4 .content ul li a {
-  color: #7e255d;
+body main ul li .cont8 .content ul li a {
+  color: #7e2525;
 }
-body main ul li .cont4 .content ul li:before {
-  background-color: #c84196;
+body main ul li .cont8 .content ul li:before {
+  background-color: #c84141;
 }
-body main ul li .cont4 .content span {
-  background: linear-gradient(transparent 70%, #df90c2 70%);
-  color: #7e255d;
+body main ul li .cont8 .content span {
+  background: linear-gradient(transparent 70%, #df9090 70%);
+  color: #7e2525;
 }
-body main .quiz {
+body main ul li .cont9 {
+  background-color: #d8d85b;
+  background-image: radial-gradient(#d8d85b 0.65px, #ececad 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont9 .content h1 {
+  background: #dddd70;
+}
+body main ul li .cont9 .content ul li a {
+  color: #a6a627;
+}
+body main ul li .cont9 .content ul li:before {
+  background-color: #d8d85b;
+}
+body main ul li .cont9 .content span {
+  background: linear-gradient(transparent 70%, #ececad 70%);
+  color: #a6a627;
+}
+body main ul li .cont10 {
+  background-color: #2c63c3;
+  background-image: radial-gradient(#2c63c3 0.65px, #759ce0 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont10 .content h1 {
+  background: #376fd2;
+}
+body main ul li .cont10 .content ul li a {
+  color: #193970;
+}
+body main ul li .cont10 .content ul li:before {
+  background-color: #2c63c3;
+}
+body main ul li .cont10 .content span {
+  background: linear-gradient(transparent 70%, #759ce0 70%);
+  color: #193970;
+}
+body main ul li .cont11 {
+  background-color: #61a937;
+  background-image: radial-gradient(#61a937 0.65px, #97d274 0.65px);
+  background-size: 13px 13px;
+}
+body main ul li .cont11 .content h1 {
+  background: #6cbc3d;
+}
+body main ul li .cont11 .content ul li a {
+  color: #355c1e;
+}
+body main ul li .cont11 .content ul li:before {
+  background-color: #61a937;
+}
+body main ul li .cont11 .content span {
+  background: linear-gradient(transparent 70%, #97d274 70%);
+  color: #355c1e;
+}
+body main ul .cont4 .content div .ookami {
+  padding: 0;
+  width: 100%;
+}
+body main ul .cont4 .content div .ookami div {
+  padding: 0;
+  margin-right: 0;
+  margin-left: 2em;
+  font-size: 0.7em;
+  line-height: 1.5em;
+  width: 100%;
+}
+body main ul .cont11 .content-image img {
+  height: 1000px;
+  width: 100vw;
+  position: relative;
+  left: 0;
+  filter: contrast(0.8);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 1080px) {
+  body li .content div .ookami {
+    display: flex;
+    flex-direction: column;
+  }
+  body li .content div .ookami img {
+    width: 100%;
+    height: 200px;
+  }
+  body li .content div .ookami div {
+    margin-left: 0 !important;
+    margin-top: 2em;
+  }
+}
+body .quiz {
   margin: 0 auto;
   margin-top: 100px;
   padding: 50px;
   font-size: 2em;
-  text-align: center;
   width: 700px;
-  background-color: #fff64f;
+  text-align: center;
+  background-color: rgba(115, 240, 52, 0.6);
   border-radius: 50px;
 }
-body main .quiz .qu-title {
+body .quiz .qu-title {
   position: relative;
   display: inline-block;
-  margin: 0 0 0 -535px;
+  margin: 0 0 0 -50%;
   padding: 1rem 3rem;
   color: #fff;
   border-radius: 0 100vh 100vh 0;
-  background: #a90025;
+  background: #c24560;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  left: -90px;
 }
-body main .quiz .qu-title:before {
+body .quiz .qu-title:before {
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -561,14 +743,14 @@ body main .quiz .qu-title:before {
   border-top: 10px solid #005276;
   border-left: 10px solid transparent;
 }
-body main .quiz h1 {
+body .quiz h1 {
   position: relative;
   padding: 1rem 2rem calc(1rem + 10px);
-  background: #00ffe1;
+  background: #32c54d;
   margin-top: 2em;
   font-size: 4vh;
 }
-body main .quiz h1:before {
+body .quiz h1:before {
   position: absolute;
   top: -7px;
   left: -7px;
@@ -577,13 +759,13 @@ body main .quiz h1:before {
   content: "";
   border: 4px solid #000;
 }
-body main .quiz p {
+body .quiz p {
   margin-top: 50px;
 }
-body main .quiz ul {
+body .quiz ul {
   margin-top: 1.5em;
 }
-body main .quiz ul li {
+body .quiz ul li {
   list-style: none;
   padding-top: 10px;
   margin-top: 10px;
@@ -591,7 +773,7 @@ body main .quiz ul li {
   margin-bottom: 10px;
   position: relative;
 }
-body main .quiz ul li .true {
+body .quiz ul li .true {
   position: absolute;
   top: 10px;
   left: 60px;
@@ -602,7 +784,7 @@ body main .quiz ul li .true {
   border: solid 10px #d81a1a;
   opacity: 0;
 }
-body main .quiz ul li .false {
+body .quiz ul li .false {
   display: block;
   width: 60px;
   height: 60px;
@@ -611,7 +793,7 @@ body main .quiz ul li .false {
   left: 60px;
   opacity: 0;
 }
-body main .quiz ul li .false::before, body main .quiz ul li .false::after {
+body .quiz ul li .false::before, body .quiz ul li .false::after {
   content: "";
   display: block;
   width: 100%;
@@ -623,23 +805,23 @@ body main .quiz ul li .false::before, body main .quiz ul li .false::after {
   top: calc(14% - 5px);
   left: 14%;
 }
-body main .quiz ul li .false::after {
+body .quiz ul li .false::after {
   transform: rotate(-45deg);
   transform-origin: 100% 50%;
   left: auto;
   right: 14%;
 }
-body main .quiz ul li input:checked + span {
+body .quiz ul li input:checked + span {
   opacity: 1;
 }
-body main .quiz ul li input {
+body .quiz ul li input {
   display: none;
 }
-body main .quiz ul li label.btn-border-shadow {
+body .quiz ul li label.btn-border-shadow {
   padding: calc(1.5rem - 12px) 3rem 1.5rem;
   background: #fff;
 }
-body main .quiz ul li label.btn-border-shadow:before {
+body .quiz ul li label.btn-border-shadow:before {
   position: absolute;
   top: -6px;
   left: -6px;
@@ -650,21 +832,33 @@ body main .quiz ul li label.btn-border-shadow:before {
   border: 3px solid #000;
   border-radius: 0.5rem;
 }
-body main .quiz ul li label.btn-border-shadow:hover {
+body .quiz ul li label.btn-border-shadow:hover {
   padding: calc(1.5rem - 6px) 3rem;
 }
-body main .quiz ul li label.btn-border-shadow:hover:before {
+body .quiz ul li label.btn-border-shadow:hover:before {
   top: 0;
   left: 0;
 }
-body main .quiz ul li label.btn-border-shadow--color2 {
+body .quiz ul li label.btn-border-shadow--color2 {
   border-radius: 100vh;
 }
-body main .quiz ul li label.btn-border-shadow--color2:before {
+body .quiz ul li label.btn-border-shadow--color2:before {
   border-radius: 100vh;
-  box-shadow: 3px 3px 0 #00ffe1;
+  box-shadow: 3px 3px 0 rgba(28, 158, 44, 0.4784313725);
 }
-body main a.btn-flat {
+@media screen and (max-width: 1000px) {
+  body .quiz {
+    width: 500px;
+  }
+  body .quiz .qu-title {
+    top: 0;
+    left: -40px;
+  }
+  body .quiz h1 {
+    font-size: 2.5vh;
+  }
+}
+body a.btn-flat {
   overflow: hidden;
   padding: 1.5rem 6rem;
   color: #fff;
@@ -675,10 +869,10 @@ body main a.btn-flat {
   left: 50%;
   transform: translateX(-50%);
 }
-body main a.btn-flat span {
+body a.btn-flat span {
   position: relative;
 }
-body main a.btn-flat:before {
+body a.btn-flat:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -687,15 +881,15 @@ body main a.btn-flat:before {
   content: "";
   transition: all 0.5s ease-in-out;
   transform: translateX(-100%);
-  background: #39c5ec;
+  background: #28b76d;
 }
-body main a.btn-flat:hover {
+body a.btn-flat:hover {
   color: #000;
 }
-body main a.btn-flat:hover:before {
+body a.btn-flat:hover:before {
   transform: translateX(0%);
 }
-body main .license {
+body .license {
   text-align: center;
   padding-top: 5em;
   padding-bottom: 5em;
